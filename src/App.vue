@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <FooterGuide v-show="$route.meta.showFooter"/>
+    <FooterGuide v-show="$route.meta.showFooter" />
   </div>
 </template>
 
@@ -12,6 +12,10 @@ export default {
   name: "App",
   components: {
     FooterGuide
+  },
+   mounted() {
+    this.$store.dispatch('getAddress')
+    this.$store.dispatch('getUserInfo')
   }
 };
 </script>
@@ -19,7 +23,5 @@ export default {
 <style lang="stylus" rel="stylesheet/stylus">
 @import url('./assets/css/reset.css');
 
-#app {
-  color: red;
-}
+
 </style>
